@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Яблочный штрудель — рецепт</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+
+  <body class="page">
+    <!-- Центральная область 60% ширины, по центру -->
+    <div class="container">
+
+      <!-- Шапка с изображением и заголовком поверх -->
+      <header class="hero-banner" role="img" aria-label="Ингредиенты для штруделя">
+        <img class="hero-img" src="images/apple-header.jpg" alt="" />
+        <h1>Яблочный штрудель</h1>
+      </header>
+
+      <main class="content">
+        <p class="lead">
+          Яблочный штрудель — это традиционное австрийское блюдо, представляющее собой
+          тонкое тесто, завернутое в начинку из яблок, корицы и изюма. Этот десерт
+          обладает нежным вкусом и ароматом.
+        </p>
+
+        <!-- Информационная панель (динамика по ховеру) -->
+        <section class="info-panel" aria-label="Информация о рецепте">
+          <div class="metric" tabindex="0" aria-label="Время приготовления: 1 час 30 минут">
+            <img
+              class="metric-icon"
+              src="images/info-1.png"
+              alt=""
+              data-default="images/info-1.png"
+              data-active="images/info-1.png"
+            />
+            <span class="metric-text">1 час 30 минут</span>
+          </div>
+
+          <div class="metric" tabindex="0" aria-label="Количество порций: 8–10">
+            <img
+              class="metric-icon"
+              src="images/servings-gray.svg"
+              alt=""
+              data-default="images/info-2.png"
+              data-active="images/info-2.png"
+            />
+            <span class="metric-text">8–10 порций</span>
+          </div>
+
+          <div class="metric" tabindex="0" aria-label="Калорийность: 250–300 ккал на порцию">
+            <img
+              class="metric-icon"
+              src="images/calories-gray.svg"
+              alt=""
+              data-default="images/info-3.png"
+              data-active="images/info-3.png"
+            />
+            <span class="metric-text">250–300 калорий</span>
+          </div>
+        </section>
+
+        <section class="ingredients">
+          <h2>Ингредиенты</h2>
+
+          <article>
+            <h3>Для теста</h3>
+            <ul>
+              <li>250 г муки</li>
+              <li>1 яйцо</li>
+              <li>1 ч.&nbsp;ложка соли</li>
+              <li>100 мл воды</li>
+              <li>2 ст.&nbsp;ложки растительного масла</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>Для начинки</h3>
+            <ul>
+              <li>4–5 средних яблок (например, Антоновка)</li>
+              <li>100 г сахара</li>
+              <li>1 ч.&nbsp;ложка корицы</li>
+              <li>50 г изюма</li>
+              <li>50 г грецких орехов (по желанию)</li>
+              <li>1 ст.&nbsp;ложка лимонного сока</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>Для посыпки</h3>
+            <ul>
+              <li>1 яйцо (для смазывания)</li>
+              <li>Сахарная пудра (по желанию)</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="steps">
+          <h2>Приготовление</h2>
+
+          <h3>Приготовление теста</h3>
+          <ol>
+            <li>В глубокой миске смешайте муку и соль.</li>
+            <li>В отдельной ёмкости взбейте яйцо с водой и растительным маслом.</li>
+            <li>Постепенно добавляйте жидкую смесь к муке, замешивая тесто до эластичности.</li>
+            <li>Заверните тесто в плёнку и оставьте на 30 минут при комнатной температуре.</li>
+          </ol>
+
+          <h3>Приготовление начинки</h3>
+          <ol>
+            <li>Яблоки очистите от кожуры, удалите сердцевины и нарежьте тонкими ломтиками.</li>
+            <li>В миске смешайте яблоки, сахар, корицу, изюм, орехи и лимонный сок.</li>
+          </ol>
+
+          <h3>Сборка и выпекание</h3>
+          <ol>
+            <li>Разогрейте духовку до <strong>180&nbsp;°C</strong>.</li>
+            <li>Раскатайте тесто в очень тонкий пласт на присыпанной мукой поверхности.</li>
+            <li>Выложите начинку на одну сторону, оставляя края свободными, сверните рулетом.</li>
+            <li>Переложите на противень с бумагой для выпечки и смажьте взбитым яйцом.</li>
+            <li>Выпекайте <strong>30–35 минут</strong> до золотистой корочки.</li>
+            <li>По желанию, посыпьте сахарной пудрой.</li>
+          </ol>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        Приятного аппетита!
+      </footer>
+    </div>
+
+    <!-- Динамика иконок: смена изображения при наведении/фокусе -->
+    <script>
+      (function () {
+        const metrics = document.querySelectorAll(".metric");
+
+        function swap(img, active) {
+          const def = img.getAttribute("data-default");
+          const alt = img.getAttribute("data-active");
+          img.src = active ? alt : def;
+        }
+
+        metrics.forEach((m) => {
+          const img = m.querySelector(".metric-icon");
+
+          // hover
+          m.addEventListener("mouseenter", () => {
+            m.classList.add("is-active");
+            if (img && img.dataset.active) swap(img, true);
+          });
+          m.addEventListener("mouseleave", () => {
+            m.classList.remove("is-active");
+            if (img && img.dataset.default) swap(img, false);
+          });
+
+          // keyboard focus
+          m.addEventListener("focusin", () => {
+            m.classList.add("is-active");
+            if (img && img.dataset.active) swap(img, true);
+          });
+          m.addEventListener("focusout", () => {
+            m.classList.remove("is-active");
+            if (img && img.dataset.default) swap(img, false);
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
